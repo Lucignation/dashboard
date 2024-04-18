@@ -1,0 +1,60 @@
+.fadeInUp {
+  animation: fadeInUpCustom 0.1s ease-in-out;
+}
+
+.fadeInUp2 {
+  animation: fadeInUpCustom2 0.3s ease-in-out;
+}
+
+.skipRight {
+  transform: translateX(13px);
+}
+
+.returnSkipRight {
+  transform: translateX(0);
+}
+
+.animateTransit {
+  transition: transform 0.3s ease-in-out;
+}
+
+.rotateCircle {
+  transform: rotateZ(-90deg);
+}
+
+@keyframes fadeInUpCustom2 {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInUpCustom {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fadeInDown {
+  animation: fadeInDownCustom 0.2s ease-in-out;
+}
+
+@keyframes fadeInDownCustom {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 20%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
