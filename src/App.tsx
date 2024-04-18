@@ -11,7 +11,7 @@ function App() {
       <div className="bg-[#010623] h-[440px] mb-[140px]">
         <Nav />
         <Routes>
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/" element={<Dashboard />} />
         </Routes>
       </div>
     </Router>
