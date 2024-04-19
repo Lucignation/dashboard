@@ -8,7 +8,7 @@ import businessSavingActive from "../assets/images/business-saving-active.png";
 import { FaDropbox, FaSpotify } from "react-icons/fa";
 import { SiZendesk } from "react-icons/si";
 import { GrStripe } from "react-icons/gr";
-import { EMoneyFlow } from "../enum/moneyFlow.enum";
+import { EMoneyFlow } from "../enums/moneyFlow.enum";
 
 export const overviewData = [
   {

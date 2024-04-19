@@ -21,10 +21,15 @@ const CashProgress: FC<ICashProgress> = ({
         <div className="flex items-center mb-3 ml-[0px]">
           <IoCaretDownCircleSharp size={25} color={color} />
           <p className="ml-4">
-            {title} %{percentage}
+            {title} <span className="ml-4">%{percentage}</span>
           </p>
         </div>
-        <p>${amount}</p>
+        <p>
+          ${amount.toLocaleString().split(".")[0]}
+          <span className="text-gray-400">
+            .{amount.toFixed(2).split(".")[1]}
+          </span>
+        </p>
       </div>
 
       <ProgressBar color={color} percentage={percentage} />

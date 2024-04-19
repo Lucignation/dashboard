@@ -4,7 +4,8 @@ import { HalfCircle } from "../../../../Icons";
 import styles from "../../../../styles/styles.module.css";
 import halfCircle from "../../../../assets/images/half-circle.png";
 import { ImArrowDown, ImArrowUp } from "react-icons/im";
-import { EMoneyFlow } from "../../../../enum/moneyFlow.enum";
+import { EMoneyFlow } from "../../../../enums/moneyFlow.enum";
+import { countDigits } from "../../../../utils/helper";
 
 interface IMoneyFlow {
   id: number;
@@ -32,7 +33,7 @@ const MoneyFlow: FC<IMoneyFlow> = ({
     setShowAmount(false);
   };
 
-  console.log({ activeTab });
+  const amountWithoutDecimal = amount.toFixed(2).split(".")[0];
 
   return (
     <>
@@ -65,7 +66,14 @@ const MoneyFlow: FC<IMoneyFlow> = ({
         </div>
         <div className="ml-3">
           <p className="capitalize">{title}</p>
-          <p className="text-[22px]">${amount}</p>
+          <p className="text-[22px]">
+            ${amount.toLocaleString().split(".")[0]}
+            {countDigits(+amountWithoutDecimal) <= 3 && (
+              <span className="text-gray-400 text-[16px]">
+                .{amount.toFixed(2).split(".")[1]}
+              </span>
+            )}
+          </p>
         </div>
         <div
           className={`h-[12px] absolute bottom-0 left-0  ${
