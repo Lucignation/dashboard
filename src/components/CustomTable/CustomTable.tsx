@@ -67,7 +67,9 @@ const CustomTable: React.FC<ICustomTable> = ({ row }) => {
               </p>
             </TableCell>
             <TableCell align="left" className="flex w-[100px]">
-              <p className={!row.isLoss ? "text-[#307267]" : ""}>
+              <p
+                className={`font-DMMono ${!row.isLoss ? "text-[#307267]" : ""}`}
+              >
                 {row.isLoss ? (
                   <span>-</span>
                 ) : (
@@ -79,7 +81,9 @@ const CustomTable: React.FC<ICustomTable> = ({ row }) => {
                   : amount.toLocaleString()}
                 .
                 <span
-                  className={!row.isLoss ? "text-[#b1f4ea]" : "text-gray-400"}
+                  className={`${
+                    !row.isLoss ? "text-[#b1f4ea]" : "text-gray-400"
+                  }`}
                 >
                   {splitedAmount[1]}
                 </span>

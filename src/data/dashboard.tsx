@@ -5,6 +5,15 @@ import taxReserveActive from "../assets/images/tax-reserve-active.png";
 import businessSavingInActive from "../assets/images/business-saving-inactive.png";
 import businessSavingActive from "../assets/images/business-saving-active.png";
 
+import {
+  MdCircle,
+  MdJoinLeft,
+  MdOutlineJoinRight,
+  MdOutlineSavings,
+  MdSavings,
+} from "react-icons/md";
+import { SiTaxbuzz } from "react-icons/si";
+
 import { FaDropbox, FaSpotify } from "react-icons/fa";
 import { SiZendesk } from "react-icons/si";
 import { GrStripe } from "react-icons/gr";
@@ -13,9 +22,10 @@ import { EMoneyFlow } from "../enums/moneyFlow.enum";
 export const overviewData = [
   {
     id: 1,
-    inactiveIcon: businessInActive,
-    activeIcon: businessActive,
-    title: "Business Account",
+    inactiveIcon: () => <MdJoinLeft size={35} />,
+    activeIcon: () => <MdOutlineJoinRight color="#6937F5" size={35} />,
+    additionalIcon: () => <MdCircle color="#6937F5" size={10} />,
+    title: "BUSINESS ACCOUNT",
     percentage: "12.3%",
     isLoss: false,
     amount: 33842,
@@ -23,9 +33,10 @@ export const overviewData = [
   },
   {
     id: 2,
-    inactiveIcon: taxReserveInActive,
-    activeIcon: taxReserveActive,
-    title: "Tax Reserve",
+    inactiveIcon: () => <SiTaxbuzz size={35} />,
+    activeIcon: () => <SiTaxbuzz color="#E07A25" size={35} />,
+    additionalIcon: () => <SiTaxbuzz color="#E07A25" size={10} />,
+    title: "TAX RESERVE",
     percentage: "-2.1%",
     isLoss: true,
     amount: 700,
@@ -33,9 +44,10 @@ export const overviewData = [
   },
   {
     id: 3,
-    inactiveIcon: businessSavingInActive,
-    activeIcon: businessSavingActive,
-    title: "Business Savings",
+    inactiveIcon: () => <MdOutlineSavings size={35} />,
+    activeIcon: () => <MdSavings color="#DE669F" size={35} />,
+    additionalIcon: () => <MdSavings color="#DE669F" size={10} />,
+    title: "BUSINESS SAVINGS",
     percentage: "",
     isLoss: false,
     amount: 1623,

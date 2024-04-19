@@ -2,7 +2,12 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        Lato: ["Lato", "sans-serif"],
+        DMMono: ["DM Mono", "monospace"],
+      },
+    },
   },
   plugins: [],
 };

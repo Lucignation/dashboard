@@ -1,17 +1,23 @@
-import { FC, useState, useEffect, useRef } from "react";
+import { FC, useState } from "react";
 
 import { RiArrowRightUpFill, RiArrowRightDownFill } from "react-icons/ri";
-import { MdArrowBackIosNew } from "react-icons/md";
+import {
+  MdArrowBackIosNew,
+  MdCircle,
+  MdOutlineJoinRight,
+  MdJoinLeft,
+} from "react-icons/md";
+import { SiTaxbuzz } from "react-icons/si";
 
 import { IAccountOverviewCard } from "../../../interfaces/global.interface";
 import { BsGraphUp } from "react-icons/bs";
-import { gsap } from "gsap";
 
 import styles from "../../../styles/styles.module.css";
 import { countDigits } from "../../../utils/helper";
 
 import "./AccountOverviewCard.module.css";
 import CustomChart from "../../../components/CustomChart/CustomChart";
+import IconSwitch from "./IconSwitch/IconSwitch";
 
 interface IOverviewData {
   overview: IAccountOverviewCard;
@@ -28,56 +34,14 @@ const AccountOverviewCard: FC<IOverviewData> = ({
   showGraph,
   selectedCard,
 }) => {
-  const [showAmount, setShowAmount] = useState<boolean>(true);
-  // const [showGraph, setShowGraph] = useState<boolean>(false);
-  // const [selectedCard, setSelectedCard] = useState<number>(1);
+  const [showAmount, setShowAmount] = useState<boolean>(false);
 
-  // const showGraphHandler = (id: number) => {
-  //   setShowGraph(true);
-  //   setSelectedCard(id);
-  // };
-
-  // const hideGraphHandler = () => {
-  //   setShowGraph(false);
-  //   setSelectedCard(0);
-  // };
-
-  const boxRef = useRef(null);
-
-  const handleMouseOver = (index: number, icon: string) => {
-    setShowAmount(false);
-    animateImageChange(icon);
-  };
-
-  const handleMouseOut = (index: number, icon: string) => {
+  const handleMouseOver = () => {
     setShowAmount(true);
-    animateImageChange(icon);
   };
 
-  useEffect(() => {
-    const animation = gsap.to(boxRef.current, {
-      //   y: -10,
-      //   rotation: 360,
-      duration: 2,
-      ease: "power2.inOut",
-    });
-
-    return () => {
-      animation.kill(); // Clean up animation
-    };
-  }, []);
-
-  const animateImageChange = (newImageSrc: string) => {
-    gsap.to(".overview-image", {
-      duration: 0.1,
-      opacity: 0.8,
-      onComplete: () => {
-        document
-          .querySelector(".overview-image")!
-          .setAttribute("src", newImageSrc);
-        gsap.to(".overview-image", { duration: 0.1, opacity: 1 });
-      },
-    });
+  const handleMouseOut = () => {
+    setShowAmount(false);
   };
 
   const amount =
@@ -92,17 +56,20 @@ const AccountOverviewCard: FC<IOverviewData> = ({
     <div className={`relative bg-[#aaa000]`}>
       <div
         className={`bg-white w-[341px] z-5 shadow-sm text-black h-[187px] px-[20px] py-[23px] absolute`}
-        onMouseEnter={() => handleMouseOver(overview.id, overview.activeIcon)}
-        onMouseLeave={() => handleMouseOut(overview.id, overview.inactiveIcon)}
+        onMouseEnter={() => handleMouseOver()}
+        onMouseLeave={() => handleMouseOut()}
       >
-        <img
-          src={showAmount ? overview.inactiveIcon : overview.activeIcon}
-          className="h-[53px] overview-image"
-          alt={overview.title}
-          ref={boxRef}
+        <IconSwitch
+          id={overview.id}
+          selectedCard={selectedCard}
+          showAmount={showAmount}
+          ActiveIcon={overview.activeIcon}
+          InactiveIcon={overview.inactiveIcon}
+          AdditionalIcon={overview.additionalIcon}
         />
+
         <div className="flex mt-[20px]">
-          <h1>{overview.title}</h1>
+          <h1 className="text-[12px]">{overview.title}</h1>
           <div className="flex items-center ml-3">
             {overview.isLoss && overview.isLoss ? (
               <div className="bg-[#d20000] px-[6px] py-[1px] rounded-md">
@@ -117,7 +84,7 @@ const AccountOverviewCard: FC<IOverviewData> = ({
           </div>
         </div>
         <div>
-          {!showAmount && !showGraph ? (
+          {showAmount && !showGraph ? (
             <div
               className={`flex mt-5 animate__animated ${styles.fadeInUp} animate__faster cursor-pointer`}
               onClick={() => showGraphHandler(overview.id)}
@@ -131,9 +98,17 @@ const AccountOverviewCard: FC<IOverviewData> = ({
             </div>
           ) : (
             <div
-              className={`flex items-center animate__animated ${styles.fadeInDown} animate__faster`}
+              className={`flex items-center animate__animated font-DMMono tracking-[0px] ${styles.fadeInDown} animate__faster`}
             >
-              <span className="text-[35px]">$</span>
+              <span
+                className={
+                  selectedCard && selectedCard === overview.id
+                    ? "text-[20px]"
+                    : "text-[35px]"
+                }
+              >
+                $
+              </span>
               <p className="text-[35px]">{amount}</p>{" "}
               {countDigits(overview.amount) < 4 && (
                 <span className="text-[20px] text-gray-400 pt-[10px]">
@@ -155,12 +130,12 @@ const AccountOverviewCard: FC<IOverviewData> = ({
         {showGraph && selectedCard === overview.id && (
           <div>
             <div className="text-gray-400">
-              <p className="pt-[95px] ml-[-90px]">VS LAST WEEK</p>
-              <div className="mt-[-100px]">
+              <p className="pt-[78px] ml-[-80px] text-[12px]">VS LAST WEEK</p>
+              <div className="mt-[-90px] ml-[-29px]">
                 <CustomChart />
               </div>
             </div>
-            <div className="pt-[45px] mt-[-125px] h-[107px] right-[0px] absolute bg-gray-200">
+            <div className="pt-[45px] mt-[-155px] h-[107px] right-[0px] absolute bg-gray-200">
               <MdArrowBackIosNew color="black" />
             </div>
           </div>

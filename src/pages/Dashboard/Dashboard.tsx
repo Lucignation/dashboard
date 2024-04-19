@@ -1,4 +1,4 @@
-import Nav from "../../components/UIKits/Nav";
+
 import { RiArrowRightUpFill } from "react-icons/ri";
 import { IoMdEye } from "react-icons/io";
 import { MdArrowOutward } from "react-icons/md";
@@ -11,12 +11,12 @@ import CashFlow from "./CashFlow/CashFlow";
 
 const Dashboard = () => {
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-hidden pb-[80px]">
       <div className="text-white mx-auto max-w-6xl mt-[62px] text-[13px] h-full ">
-        <h2>Total Balance</h2>
+        <h2>TOTAL BALANCE</h2>
         <div className="flex justify-between items-center">
           <div className="flex items-end">
-            <h1 className="text-[36px]">$36,254</h1>
+            <h1 className="text-[36px] font-Lato">$36,254</h1>
             <div className="flex items-center ml-6 pb-1">
               <div className="bg-[#AEF600] px-2 py-[2px] text-black rounded-md text-center mr-2">
                 <RiArrowRightUpFill />

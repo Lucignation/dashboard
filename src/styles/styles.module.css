@@ -34,6 +34,20 @@
   transform: rotateZ(-90deg);
 }
 
+.skipUp {
+  transform: translateY(13px);
+  opacity: 0;
+}
+
+.returnSkipUp {
+  opacity: 1;
+  transform: translateY(-5px);
+}
+
+.animateTransit {
+  transition: transform 0.3s ease-in-out;
+}
+
 @keyframes fadeInUpCustom2 {
   from {
     opacity: 0;

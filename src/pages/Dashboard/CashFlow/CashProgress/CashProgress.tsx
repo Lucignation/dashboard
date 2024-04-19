@@ -24,7 +24,7 @@ const CashProgress: FC<ICashProgress> = ({
             {title} <span className="ml-4">%{percentage}</span>
           </p>
         </div>
-        <p>
+        <p className="font-DMMono">
           ${amount.toLocaleString().split(".")[0]}
           <span className="text-gray-400">
             .{amount.toFixed(2).split(".")[1]}

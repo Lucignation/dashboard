@@ -1,3 +1,5 @@
+import React from "react";
+
 export interface INav {
   name: string;
   path: string;
@@ -6,8 +8,9 @@ export interface INav {
 
 export interface IAccountOverviewCard {
   id: number;
-  inactiveIcon: string;
-  activeIcon: string;
+  inactiveIcon: () => React.ReactElement;
+  activeIcon: () => React.ReactElement;
+  additionalIcon: () => React.ReactElement;
   title: string;
   percentage: string;
   isLoss: boolean;

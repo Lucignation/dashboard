@@ -1,11 +1,9 @@
 import { useState } from "react";
 import cashFlowIcon from "../../../assets/images/cash-flow.png";
-import ProgressBar from "../../../components/ProgressBar/ProgressBar";
 import TableHeader from "../../../components/TableHeader/TableHeader";
 import { CashFlowData, moneyData } from "../../../data/dashboard";
 import { EMoneyFlow } from "../../../enums/moneyFlow.enum";
 import MoneyFlow from "./MoneyFlow/MoneyFlow";
-import { IoCaretDownCircleSharp } from "react-icons/io5";
 import CashProgress from "./CashProgress/CashProgress";
 
 const CashFlow = () => {

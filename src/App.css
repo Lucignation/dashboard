@@ -5,3 +5,7 @@
 .css-1ex1afd-MuiTableCell-root {
   padding-left: 0px !important;
 }
+
+.MuiChartsAxis-directionY {
+  display: none;
+}

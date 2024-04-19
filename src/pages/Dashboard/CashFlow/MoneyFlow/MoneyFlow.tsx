@@ -1,11 +1,11 @@
 import { FC, useState } from "react";
 
-import { HalfCircle } from "../../../../Icons";
-import styles from "../../../../styles/styles.module.css";
 import halfCircle from "../../../../assets/images/half-circle.png";
 import { ImArrowDown, ImArrowUp } from "react-icons/im";
 import { EMoneyFlow } from "../../../../enums/moneyFlow.enum";
 import { countDigits } from "../../../../utils/helper";
+
+import styles from "../../../../styles/styles.module.css";
 
 interface IMoneyFlow {
   id: number;
@@ -61,12 +61,11 @@ const MoneyFlow: FC<IMoneyFlow> = ({
           </div>
           <div className={`bg-black rounded-[50px] h-[35px] w-[35px] pt-[4px]`}>
             <img src={halfCircle} className="w-[40px]" alt="half cirle icon" />
-            {/* <HalfCircle /> */}
           </div>
         </div>
         <div className="ml-3">
           <p className="capitalize">{title}</p>
-          <p className="text-[22px]">
+          <p className="text-[22px] font-DMMono">
             ${amount.toLocaleString().split(".")[0]}
             {countDigits(+amountWithoutDecimal) <= 3 && (
               <span className="text-gray-400 text-[16px]">
