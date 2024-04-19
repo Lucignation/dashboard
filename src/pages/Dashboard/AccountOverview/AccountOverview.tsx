@@ -11,12 +11,12 @@ const AccountOverview = () => {
 
   const showGraphHandler = (id: number) => {
     // setSelectedCard(id);
-    if (id === 1) {
-      setShowGraph(true);
-      return setSelectedCard(id); //Due to deadline, I will only make the first time to show
-    } else {
-      setSelectedCard(0);
+    //Due to deadline, I will only make the first time to show
+    if (id !== 1) {
+      return;
     }
+    setShowGraph(true);
+    return setSelectedCard(id);
   };
 
   const hideGraphHandler = () => {

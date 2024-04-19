@@ -84,7 +84,7 @@ const AccountOverviewCard: FC<IOverviewData> = ({
           </div>
         </div>
         <div>
-          {showAmount && !showGraph ? (
+          {(showAmount && !showGraph) || showAmount ? (
             <div
               className={`flex mt-5 animate__animated ${styles.fadeInUp} animate__faster cursor-pointer`}
               onClick={() => showGraphHandler(overview.id)}
@@ -125,7 +125,6 @@ const AccountOverviewCard: FC<IOverviewData> = ({
             ? styles.slideRight
             : showGraph
         } ${styles.animateSlideTransit}`}
-        onClick={() => hideGraphHandler()}
       >
         {showGraph && selectedCard === overview.id && (
           <div>
@@ -135,7 +134,10 @@ const AccountOverviewCard: FC<IOverviewData> = ({
                 <CustomChart />
               </div>
             </div>
-            <div className="pt-[45px] mt-[-155px] h-[107px] right-[0px] absolute bg-gray-200">
+            <div
+              className="pt-[45px] mt-[-155px] h-[107px] right-[0px] absolute bg-gray-200"
+              onClick={() => hideGraphHandler()}
+            >
               <MdArrowBackIosNew color="black" />
             </div>
           </div>

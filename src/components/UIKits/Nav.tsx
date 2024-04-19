@@ -4,7 +4,7 @@ import { RiSettingsLine, RiSearch2Line } from "react-icons/ri";
 import { useLocation } from "react-router-dom";
 
 const navs: Array<INav> = [
-  { name: "Dashboard", path: "/dashboard", active: true },
+  { name: "Dashboard", path: "/", active: true },
   { name: "Payments", path: "/payments", active: false },
   { name: "Transaction", path: "/transaction", active: false },
   { name: "Cards", path: "/cards", active: false },
@@ -19,16 +19,14 @@ const Nav: FC = () => {
     <nav>
       <div className="mx-auto max-w-8xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
-          <div>
-            <div className="flex flex-shrink-0 items-center">
-              <img
-                className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                alt="Your Company"
-              />
-            </div>
+          <div className="flex flex-shrink-0 items-center">
+            <img
+              className="h-8 w-auto"
+              src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+              alt="Your Company"
+            />
           </div>
-          <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+          <div className="flex flex-1 items-center justify-center ">
             <div className="hidden sm:ml-6 sm:block flex justify-center">
               <div className="flex space-x-4">
                 {navs.map((nav: INav, index: number) => (
