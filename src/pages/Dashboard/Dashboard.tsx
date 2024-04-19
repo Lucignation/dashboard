@@ -17,7 +17,7 @@ const Dashboard = () => {
         <div className="flex justify-between items-center">
           <div className="flex items-end">
             <h1 className="text-[36px] font-Lato">$36,254</h1>
-            <div className="flex items-center ml-6 pb-1">
+            <div className="flex items-center ml-6 mb-[12px]">
               <div className="bg-[#AEF600] px-2 py-[2px] text-black rounded-md text-center mr-2">
                 <RiArrowRightUpFill />
               </div>
