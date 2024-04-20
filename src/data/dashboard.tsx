@@ -1,10 +1,3 @@
-import businessInActive from "../assets/images/business-account-inactive.png";
-import businessActive from "../assets/images/business-account-active.png";
-import taxReserveInActive from "../assets/images/tax-reserve-inactive.png";
-import taxReserveActive from "../assets/images/tax-reserve-active.png";
-import businessSavingInActive from "../assets/images/business-saving-inactive.png";
-import businessSavingActive from "../assets/images/business-saving-active.png";
-
 import {
   MdCircle,
   MdJoinLeft,

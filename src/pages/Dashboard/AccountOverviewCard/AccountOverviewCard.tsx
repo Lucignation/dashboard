@@ -3,11 +3,7 @@ import { FC, useState } from "react";
 import { RiArrowRightUpFill, RiArrowRightDownFill } from "react-icons/ri";
 import {
   MdArrowBackIosNew,
-  MdCircle,
-  MdOutlineJoinRight,
-  MdJoinLeft,
 } from "react-icons/md";
-import { SiTaxbuzz } from "react-icons/si";
 
 import { IAccountOverviewCard } from "../../../interfaces/global.interface";
 import { BsGraphUp } from "react-icons/bs";

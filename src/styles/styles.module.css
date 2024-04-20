@@ -48,6 +48,10 @@
   transition: transform 0.3s ease-in-out;
 }
 
+.fadeInDown {
+  animation: fadeInDownCustom 0.2s ease-in-out;
+}
+
 @keyframes fadeInUpCustom2 {
   from {
     opacity: 0;
@@ -68,10 +72,6 @@
     opacity: 1;
     transform: translate3d(0, 0, 0);
   }
-}
-
-.fadeInDown {
-  animation: fadeInDownCustom 0.2s ease-in-out;
 }
 
 @keyframes fadeInDownCustom {

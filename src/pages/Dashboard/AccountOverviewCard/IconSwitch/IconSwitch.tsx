@@ -1,5 +1,4 @@
 import { FC, ReactElement } from "react";
-import { MdCircle, MdJoinLeft, MdOutlineJoinRight } from "react-icons/md";
 import styles from "../../../../styles/styles.module.css";
 
 interface IIconSwitch {
@@ -30,14 +29,11 @@ const IconSwitch: FC<IIconSwitch> = ({
             : styles.skipUp
         }`}
       >
-        {/* <MdCircle color="#6937F5" size={10} /> */}
         <AdditionalIcon />
       </span>
       {showAmount || (selectedCard && selectedCard === id) ? (
-        // <MdJoinLeft color="#6937F5" size={35} />
         <ActiveIcon />
       ) : (
-        // <MdOutlineJoinRight size={35} />
         <InactiveIcon />
       )}
     </div>
