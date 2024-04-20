@@ -50,7 +50,6 @@ const AccountOverviewCard: FC<IOverviewData> = ({
       : overview.amount;
 
   const reworkedAmount = overview.amount.toFixed(2).split(".");
-  console.log(showGraph, selectedCard);
 
   return (
     <div className={`relative bg-[#aaa000]`}>

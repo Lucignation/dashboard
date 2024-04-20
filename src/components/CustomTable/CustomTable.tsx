@@ -30,7 +30,6 @@ const CustomTable: React.FC<ICustomTable> = ({ row }) => {
   const amount = row.amount;
   const splitedAmount = amount.toFixed(2).split(".");
 
-  console.log({ isHover });
   return (
     <TableContainer component={Paper}>
       <Table aria-label="custom table">
